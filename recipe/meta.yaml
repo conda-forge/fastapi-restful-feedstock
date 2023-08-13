@@ -1,5 +1,5 @@
 {% set name = "fastapi-restful" %}
-{% set version = "0.4.5" %}
+{% set version = "0.5.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/fastapi_restful-{{ version }}.tar.gz
-  sha256: 302d0f8404b3c868b3e813b36316cf29084b6b1c82e4f21ce57405d955104a43
+  sha256: f4215d262aa3fb3d6024e1b45061151f3e38afa41877c6253f434c65690c1ed7
 
 build:
   noarch: python
@@ -22,10 +22,12 @@ requirements:
   run:
     - python >=3.7
     - fastapi >=0.89,<1.0
-    - pydantic >=1.0,<2.0
+    - pydantic >=1.0,<3.0
     - psutil >=5.0.0,<6.0
   run_constrained:
-    - sqlalchemy >=1.4.0,<2.0.0
+    - sqlalchemy >=1.4.0,<3.0.0
+    - pydantic-settings >=2.0.1,<3.0.0
+    - typing_inspect >=0.9.0,<1.0.0
 
 test:
   imports:
@@ -34,6 +36,8 @@ test:
     - pip check
   requires:
     - pip
+    # needed when testing with pydantic 2
+    - typing_inspect
 
 about:
   home: https://github.com/yuval9313/FastApi-RESTful
