@@ -36,6 +36,8 @@ test:
     - pip check
   requires:
     - pip
+    # needed when testing with pydantic 2
+    - typing-inspect
 
 about:
   home: https://github.com/yuval9313/FastApi-RESTful
