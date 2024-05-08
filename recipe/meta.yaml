@@ -1,5 +1,5 @@
 {% set name = "fastapi-restful" %}
-{% set version = "0.5.0" %}
+{% set version = "0.6.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/fastapi_restful-{{ version }}.tar.gz
-  sha256: f4215d262aa3fb3d6024e1b45061151f3e38afa41877c6253f434c65690c1ed7
+  sha256: 75cde98b19224dfa424e7fa1b04b51d4787b02e38fae6c1436815857bc3e8179
 
 build:
   noarch: python
