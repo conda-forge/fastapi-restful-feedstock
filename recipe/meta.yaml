@@ -6,21 +6,21 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/fastapi_restful-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/fastapi_restful-{{ version }}.tar.gz
   sha256: 75cde98b19224dfa424e7fa1b04b51d4787b02e38fae6c1436815857bc3e8179
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.7
+    - python {{ python_min }}
     - poetry-core >=1.0.0
     - pip
   run:
-    - python >=3.7
+    - python >={{ python_min }}
     - fastapi >=0.89,<1.0
     - pydantic >=1.0,<3.0
     - psutil >=5.0.0,<6.0
@@ -38,6 +38,7 @@ test:
     - pip
     # needed when testing with pydantic 2
     - typing_inspect
+    - python {{ python_min }}
 
 about:
   home: https://github.com/yuval9313/FastApi-RESTful
